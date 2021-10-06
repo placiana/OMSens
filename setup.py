@@ -33,13 +33,13 @@ __author__ = "Adeel Asghar, adeel.asghar@liu.se"
 __maintainer__ = "https://openmodelica.org"
 __status__ = "Production"
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 import sys
 from shutil import which
 from subprocess import call
 
-setup(name='OMSens',
+setup(name='OMSens-placiana',
       python_requires='>=3.6',
       version='1.0.0',
       description='OpenModelica sensitivity analysis and optimization module',
@@ -55,8 +55,15 @@ setup(name='OMSens',
           'matplotlib==3.3',
           'numpy',
           'pandas==1.1.3'
-      ]
-      )
+      ],
+      #package_dir={'omsens': '.'},
+      packages=find_packages(),
+      zip_safe=False,
+      include_package_data=True,
+      package_data={
+        "": ["fortran_interface/*"],
+      }
+)
 
 try:
   omhome = os.path.split(os.path.split(os.path.realpath(which("omc")))[0])[0]
