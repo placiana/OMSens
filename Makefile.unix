@@ -6,7 +6,7 @@ all: install
 
 install:
 	mkdir -p $(OMBUILDDIR)/share/OMSens
-	cp -rfp . $(OMBUILDDIR)/share/OMSens
+	cp -rfp omsens $(OMBUILDDIR)/share/OMSens
 
 clean:
 	rm -rf $(OMBUILDDIR)/share/OMSens

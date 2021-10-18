@@ -1,2 +1,3 @@
-include fortran_interface/*
-include resource/*
+include omsens/fortran_interface/*.so
+include omsens/fortran_interface/*.pyf
+include omsens/resource/*

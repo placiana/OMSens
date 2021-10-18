@@ -41,7 +41,7 @@ from subprocess import call
 
 setup(name='OMSens-placiana',
       python_requires='>=3.6',
-      version='1.0.0',
+      version='1.0.2',
       description='OpenModelica sensitivity analysis and optimization module',
       author='Rodrigo Castro',
       author_email='rcastro@dc.uba.ar',
@@ -56,12 +56,12 @@ setup(name='OMSens-placiana',
           'numpy',
           'pandas==1.1.3'
       ],
-      #package_dir={'omsens': '.'},
-      packages=find_packages(),
+      #package_dir={'': 'omsens'},
+      packages=find_packages('.'),
       zip_safe=False,
       include_package_data=True,
       package_data={
-        "": ["fortran_interface/*"],
+        "": ["omsens/fortran_interface/*.so"],
       }
 )
 
@@ -76,12 +76,12 @@ if omhome is None:
 
 try:
   # Compile CURVI files
-  if 0 != call(["gfortran", "-fPIC", "-c", "Rutf.for", "Rut.for", "Curvif.for"], cwd="fortran_interface"):
+  if 0 != call(["gfortran", "-fPIC", "-c", "Rutf.for", "Rut.for", "Curvif.for"], cwd="omsens/fortran_interface"):
     raise Exception("Failed to compile CURVI files.")
   print("CURVI files compiled.")
 
   # Generate CURVIF python binary
-  f2py_call = call(["f2py", "-c", "-I.", "Curvif.o", "Rutf.o", "Rut.o", "-m", "curvif_simplified", "curvif_simplified.pyf", "Curvif_simplified.f90"], cwd="fortran_interface")
+  f2py_call = call(["f2py3", "-c", "-I.", "Curvif.o", "Rutf.o", "Rut.o", "-m", "curvif_simplified", "curvif_simplified.pyf", "Curvif_simplified.f90"], cwd="omsens/fortran_interface")
   if 0 != f2py_call:
     raise Exception("Failed to generate CURVIF python binary.")
   print("Generated CURVIF python binary.")
