@@ -39,9 +39,38 @@ import sys
 from shutil import which
 from subprocess import call
 
+
+def build_python_binaries():
+    try:
+        omhome = os.path.split(os.path.split(os.path.realpath(which("omc")))[0])[0]
+    except BaseException:
+        omhome = None
+    omhome = omhome or os.environ.get('OPENMODELICAHOME')
+    
+    if omhome is None:
+        raise Exception("Failed to find OPENMODELICAHOME (searched for environment variable as well as the omc executable)")
+    
+    try:
+        # Compile CURVI files
+        if 0 != call(["gfortran", "-fPIC", "-c", "Rutf.for", "Rut.for", "Curvif.for"], cwd="omsens/fortran_interface"):
+            raise Exception("Failed to compile CURVI files.")
+        print("CURVI files compiled.")
+        
+        # Generate CURVIF python binary
+        f2py_call = call(["f2py3", "-c", "-I.", "Curvif.o", "Rutf.o", "Rut.o", "-m", "curvif_simplified", "curvif_simplified.pyf", "Curvif_simplified.f90"], cwd="omsens/fortran_interface")
+        if 0 != f2py_call:
+            raise Exception("Failed to generate CURVIF python binary.")
+        print("Generated CURVIF python binary.")
+    except ImportError:
+        print("Error installing OMSens.")
+
+
+if 'sdist' not in sys.argv and 'egg_info' not in sys.argv:
+    build_python_binaries()
+
 setup(name='OMSens-placiana',
       python_requires='>=3.6',
-      version='1.0.2',
+      version='1.0.6',
       description='OpenModelica sensitivity analysis and optimization module',
       author='Rodrigo Castro',
       author_email='rcastro@dc.uba.ar',
@@ -52,11 +81,11 @@ setup(name='OMSens-placiana',
       install_requires=[
           'six',
           'pytest',
-          'matplotlib==3.3',
+          'matplotlib',
           'numpy',
-          'pandas==1.1.3'
+          'pandas'
       ],
-      #package_dir={'': 'omsens'},
+      # package_dir={'': 'omsens'},
       packages=find_packages('.'),
       zip_safe=False,
       include_package_data=True,
@@ -65,25 +94,3 @@ setup(name='OMSens-placiana',
       }
 )
 
-try:
-  omhome = os.path.split(os.path.split(os.path.realpath(which("omc")))[0])[0]
-except BaseException:
-  omhome = None
-omhome = omhome or os.environ.get('OPENMODELICAHOME')
-
-if omhome is None:
-    raise Exception("Failed to find OPENMODELICAHOME (searched for environment variable as well as the omc executable)")
-
-try:
-  # Compile CURVI files
-  if 0 != call(["gfortran", "-fPIC", "-c", "Rutf.for", "Rut.for", "Curvif.for"], cwd="omsens/fortran_interface"):
-    raise Exception("Failed to compile CURVI files.")
-  print("CURVI files compiled.")
-
-  # Generate CURVIF python binary
-  f2py_call = call(["f2py3", "-c", "-I.", "Curvif.o", "Rutf.o", "Rut.o", "-m", "curvif_simplified", "curvif_simplified.pyf", "Curvif_simplified.f90"], cwd="omsens/fortran_interface")
-  if 0 != f2py_call:
-    raise Exception("Failed to generate CURVIF python binary.")
-  print("Generated CURVIF python binary.")
-except ImportError:
-  print("Error installing OMSens.")

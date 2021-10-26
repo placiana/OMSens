@@ -1,3 +1,3 @@
-include omsens/fortran_interface/*.so
-include omsens/fortran_interface/*.pyf
+include omsens/fortran_interface/*
+#exclude omsens/fortran_interface/*.so omsens/fortran_interface/*.o
 include omsens/resource/*
