@@ -8,9 +8,9 @@ import os
 import re
 
 # Mine
-import running.simulation_run_info as simu_run_info
-import running.sweep as sweep
-from plotting.plot_sweep import SweepPlotter
+import omsens.running.simulation_run_info as simu_run_info
+import omsens.running.sweep as sweep
+from omsens.plotting.plot_sweep import SweepPlotter
 
 
 class TestSweepPlot(unittest.TestCase):

@@ -9,9 +9,9 @@ import numpy
 import pathlib
 
 # Mine
-import running.sweep
-import filesystem.files_aux as files_aux
-import plotting.plot_sweep as plot_sweep
+import omsens.running.sweep
+import omsens.filesystem.files_aux as files_aux
+import omsens.plotting.plot_sweep as plot_sweep
 
 
 class TestIndividualSensitivityAnalysis(unittest.TestCase):
@@ -150,7 +150,7 @@ class TestIndividualSensitivityAnalysis(unittest.TestCase):
     # Auxs:
     def tryToImportCurviModule(self):
         try:
-            import fortran_interface.curvif_simplified as curvif_simplified
+            import omsens.fortran_interface.curvif_simplified as curvif_simplified
         except:
             error_msg = "The curvi optimizer was not installed correctly and is unavailable"
             self.fail(error_msg)

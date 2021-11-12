@@ -7,8 +7,8 @@ import numpy
 import pytest
 
 # Mine
-import filesystem.files_aux as files_aux
-import vectorial.model_optimizer as model_optimizer_f
+import omsens.filesystem.files_aux as files_aux
+import omsens.vectorial.model_optimizer as model_optimizer_f
 
 
 class TestVectorialSensitivityAnalysis(unittest.TestCase):

@@ -5,7 +5,8 @@ import logging  # en reemplazo de los prints
 logger = logging.getLogger("--CSV output to CSV Matrix converter--")  # un logger especifico para este modulo
 
 # Mine
-import filesystem.files_aux
+import omsens.filesystem.files_aux
+from omsens import filesystem
 
 
 def W3TheoSensCSVToMatrixCSVFromYear(w3theosens_csv_file_path, output_matrix_path, year):

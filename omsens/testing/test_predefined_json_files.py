@@ -7,9 +7,10 @@ import unittest
 
 import pytest
 
-import filesystem.files_aux
-import multiparam_sweep
-import individual_sens_calculator
+#import filesystem.files_aux
+#import multiparam_sweep
+#import individual_sens_calculator
+from omsens import filesystem, individual_sens_calculator, multiparam_sweep
 
 
 class TestsPredefinedJSONFiles(unittest.TestCase):

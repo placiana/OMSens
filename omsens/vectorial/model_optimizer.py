@@ -1,9 +1,9 @@
 # Std
 import logging  # instead of prints
 # Project
-import modelica_interface.build_model as build_model
-import vectorial.optimization_result as optimization_result
-import fortran_interface.curvif_simplified as curvi_mod
+import omsens.modelica_interface.build_model as build_model
+import omsens.vectorial.optimization_result as optimization_result
+import omsens.fortran_interface.curvif_simplified as curvi_mod
 # Logging config
 logger = logging.getLogger("ModelOptimizer")
 

@@ -1,11 +1,10 @@
 # Std
-import numpy
 import itertools
 import os
 # Mine
-import modelica_interface.build_model as build_model
-import filesystem.files_aux as files_aux
-import running.simulation_run_info as simu_run_info
+from omsens.modelica_interface import build_model as build_model
+import omsens.filesystem.files_aux as files_aux
+import omsens.running.simulation_run_info as simu_run_info
 
 
 class ParametersSweeper():

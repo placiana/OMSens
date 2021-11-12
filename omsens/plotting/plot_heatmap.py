@@ -14,8 +14,8 @@ from matplotlib.colors import SymLogNorm  # for logarithmic scale
 logger = logging.getLogger("--Heatmap Plotter--") #un logger especifico para este modulo
 
 # Mine
-import world3_specific.standard_run_params_defaults
-import filesystem.files_aux
+import omsens.world3_specific.standard_run_params_defaults
+import omsens.filesystem.files_aux
 
 class Heatmap:
     # Instance functions

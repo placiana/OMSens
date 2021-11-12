@@ -5,8 +5,8 @@ import os
 import platform
 
 # Mine
-import filesystem.files_aux as files_aux
-import settings.gral_settings
+import omsens.filesystem.files_aux as files_aux
+import omsens.settings.gral_settings
 
 logger = logging.getLogger("--SensMosWriter--")  # this modules logger
 

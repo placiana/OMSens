@@ -6,11 +6,10 @@ import sys
 import logging
 
 # Ours
-import analysis.indiv_sens
-import filesystem.files_aux as files_aux
-import mos_writer.calculate_sensitivities_mos_writer as sens_mos_writer
-import modelica_interface.run_omc as run_omc
-import settings.gral_settings
+from omsens import analysis, settings
+from omsens.filesystem import files_aux
+from omsens.analysis.indiv_sens import ParametersIsolatedPerturbator
+
 
 logger = logging.getLogger("-Individual Sens Calculator-")
 script_description = "Calculate variables sensitivities to parameters when perturbed in isolation"
@@ -66,7 +65,7 @@ def perturbateAndAnalyze( model_name, model_file_path, start_time, stop_time, pa
         "build_folder_path": perturbations_folder_path,
     }
     # Initialize perturbator
-    perturbator = analysis.indiv_sens.ParametersIsolatedPerturbator(**perturbator_kwargs)
+    perturbator = ParametersIsolatedPerturbator(**perturbator_kwargs)
     # Run simulations using perturbator
     logger.info("Running Modelica with specified information")
     isolated_perturbations_results = perturbator.runSimulations(perturbations_folder_path)

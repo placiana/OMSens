@@ -7,8 +7,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # Project
-import plotting.plot_lines as plot_lines
-import plotting.plot_specs as plot_specs
+import omsens.plotting.plot_lines as plot_lines
+import omsens.plotting.plot_specs as plot_specs
 
 class VectorialPlotter():
     def __init__(self, optim_result, df_x0_run, df_x_opt_run):

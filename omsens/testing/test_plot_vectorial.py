@@ -8,8 +8,8 @@ import pandas
 from io import StringIO
 
 # Mine
-from plotting.plot_vectorial import VectorialPlotter
-import vectorial.optimization_result as optimization_result_f
+from omsens.plotting.plot_vectorial import VectorialPlotter
+import omsens.vectorial.optimization_result as optimization_result_f
 
 
 

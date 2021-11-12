@@ -9,9 +9,9 @@ import pandas
 import numpy
 
 # Mine
-import running.sweep
-import filesystem.files_aux as files_aux
-import plotting.plot_sweep as plot_sweep
+import omsens.running.sweep
+import omsens.filesystem.files_aux as files_aux
+import omsens.plotting.plot_sweep as plot_sweep
 
 
 class TestMultiparameterSweep(unittest.TestCase):
@@ -148,7 +148,7 @@ class TestMultiparameterSweep(unittest.TestCase):
                 "iterations": 3
             },
         ]
-        sweep_runner = running.sweep.ParametersSweeper(model_name, model_file_path, start_time, stop_time,
+        sweep_runner = omsens.running.sweep.ParametersSweeper(model_name, model_file_path, start_time, stop_time,
                                                        perturbation_info_per_param, fixed_params, self._temp_dir,
                                                        number_of_intervals=2)
         return sweep_runner

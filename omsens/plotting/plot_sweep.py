@@ -3,12 +3,12 @@ import os
 import numpy
 import pandas
 import matplotlib
+from omsens.plotting import plot_specs, plot_lines
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # Project
-import plotting.plot_lines as plot_lines
-import plotting.plot_specs as plot_specs
+
 
 class SweepPlotter():
     def __init__(self, sweep_results):

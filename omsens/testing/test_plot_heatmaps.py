@@ -10,7 +10,7 @@ import unittest
 import pandas
 
 # Mine
-import plotting.plot_heatmap as plot_heatmap
+import omsens.plotting.plot_heatmap as plot_heatmap
 
 
 class TestPlotHeatmap(unittest.TestCase):

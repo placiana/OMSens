@@ -10,10 +10,10 @@ import pathlib
 import numpy
 
 # Mine
-import analysis.indiv_sens as indiv_sens
-import filesystem.files_aux as files_aux
-import individual_sens_calculator
-import running.simulation_run_info as simu_run_info
+import omsens.analysis.indiv_sens as indiv_sens
+import omsens.filesystem.files_aux as files_aux
+import omsens.individual_sens_calculator
+import omsens.running.simulation_run_info as simu_run_info
 
 
 class TestIndividualSensitivityAnalysis(unittest.TestCase):
@@ -103,7 +103,7 @@ class TestIndividualSensitivityAnalysis(unittest.TestCase):
             "target_vars"           : "x",
             "dest_folder_path"      : build_folder_path,
         }
-        individual_sens_calculator.perturbateAndAnalyze(**perturbateAndAnalyze_kwargs)
+        omsens.individual_sens_calculator.perturbateAndAnalyze(**perturbateAndAnalyze_kwargs)
 
     def test_sens_run_gives_correct_results(self):
         # Run info. This corresponds to a simulation that perturbed some parameters in isolation. To avoid running the simulation in this test,

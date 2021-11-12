@@ -4,11 +4,12 @@ import sys
 import argparse
 import logging  # instead of prints
 import json
-import filesystem.files_aux as files_aux
 
 # Mine
-import running.sweep
-import plotting.plot_sweep as plot_sweep
+from omsens.filesystem import files_aux
+from omsens.running import sweep
+from omsens.plotting import plot_sweep
+
 
 logger = logging.getLogger("-Multiparameter Sweep-")
 script_description = "Run a multiparemeter sweep and plot the results"
@@ -47,7 +48,7 @@ def sweepAndPlotFromJSON(dest_folder_path, json_file_path):
 
         }
     # Initialize sweeper
-    sweep_runner = running.sweep.ParametersSweeper(**sweep_kwargs)
+    sweep_runner = sweep.ParametersSweeper(**sweep_kwargs)
     # Run sweep
     sweep_results = sweep_runner.runSweep(dest_folder_path)
     # Initialize sweep results plotter

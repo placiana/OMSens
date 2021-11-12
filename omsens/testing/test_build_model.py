@@ -8,8 +8,8 @@ import pandas
 import numpy
 
 # Mine
-import modelica_interface.build_model as build_model
-import filesystem.files_aux as files_aux
+import omsens.modelica_interface.build_model as build_model
+import omsens.filesystem.files_aux as files_aux
 
 
 class TestsBuildModel(unittest.TestCase):

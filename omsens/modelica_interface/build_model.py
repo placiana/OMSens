@@ -1,9 +1,9 @@
 # Std
 import os
 # Mine
-import filesystem.files_aux as files_aux
-import modelica_interface.run_omc as run_omc
-from modelica_interface.compiled_model import CompiledModelicaModel
+import omsens.filesystem.files_aux as files_aux
+import omsens.modelica_interface.run_omc as run_omc
+from omsens.modelica_interface.compiled_model import CompiledModelicaModel
 
 
 class ModelicaModelBuilder():

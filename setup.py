@@ -70,7 +70,7 @@ if 'sdist' not in sys.argv and 'egg_info' not in sys.argv:
 
 setup(name='OMSens-placiana',
       python_requires='>=3.6',
-      version='1.0.6',
+      version='1.0.7',
       description='OpenModelica sensitivity analysis and optimization module',
       author='Rodrigo Castro',
       author_email='rcastro@dc.uba.ar',
@@ -79,6 +79,7 @@ setup(name='OMSens-placiana',
       license="BSD, OSMC-PL 1.2, GPL (user's choice)",
       url='http://openmodelica.org/',
       install_requires=[
+          'wheel',
           'six',
           'pytest',
           'matplotlib',

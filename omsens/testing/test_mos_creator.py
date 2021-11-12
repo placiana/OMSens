@@ -7,11 +7,11 @@ import unittest
 
 import pytest
 
-import analysis.indiv_sens
-import filesystem.files_aux
-import mos_writer.calculate_sensitivities_mos_writer as sens_mos_writer
+import omsens.analysis.indiv_sens
+import omsens.filesystem.files_aux
+import omsens.mos_writer.calculate_sensitivities_mos_writer as sens_mos_writer
 # Ours
-import modelica_interface.run_omc as omc_runner
+import omsens.modelica_interface.run_omc as omc_runner
 
 
 class TestsRunOMC(unittest.TestCase):

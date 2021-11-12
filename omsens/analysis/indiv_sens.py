@@ -7,10 +7,10 @@ import unicodedata  # slugifying file names
 
 import pandas  # dataframes
 
-import filesystem.files_aux as files_aux
-import plotting.plot_heatmap as heatmap_f
-import modelica_interface.build_model as build_model
-import running.simulation_run_info as simu_run_info
+import omsens.filesystem.files_aux as files_aux
+import omsens.plotting.plot_heatmap as heatmap_f
+import omsens.modelica_interface.build_model as build_model
+import omsens.running.simulation_run_info as simu_run_info
 
 logger = logging.getLogger("--ParameterSensAnalysis--")  # this modules logger
 
